@@ -26,5 +26,7 @@ public class CampoMinadoTest {
 		Jogada nova = new Jogada(Acao.INVESTIGAR, new Coordenada(0, 0));
 		assertTrue("deveria ser valida!",cm.validar(nova));
 		
+		
 	}
+	
 }
