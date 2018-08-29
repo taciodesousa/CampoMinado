@@ -127,7 +127,22 @@ public class JogadasTest {
 		
 		// Ent√£o...
 	}
+	@test
+	public void acaoValida() {//verificar se a jogada È valida
+		
+		Jogada n1 = new Jogada(Acao.INVESTIGAR, new Coordenada(0, 0));
+		Jogada n2 = new Jogada(Acao.INVESTIGAR, new Coordenada(0, 0));
+		assertTrue("jogada valida!", n1.equals(n2));
+		
 	
+	}
+	
+	@test
+	public void bombaNaoexplodiu() {
+		Jogada n1 = new Jogada(Acao.INVESTIGAR, new Coordenada(3,3));
+		Jogada n2 = new Jogada(Acao.INVESTIGAR, new Coordenada(0,0));
+		assertFalse("Bomba Explodiu, n„o pode mais jogar!", n1.equals(n2));
+	}
 	
 	
 	

@@ -1,5 +1,7 @@
 package br.ufpi.poo.campominado.tests;
 
+import static org.junit.Assert.assertFalse;
+
 import org.junit.Test;
 
 import br.ufpi.poo.campominado.enums.Acao;
@@ -86,5 +88,25 @@ public class AulaTeste {
 	
 	}
 	
+	@Test(expected = BombaExplodiuException.class)//teste 1
+	public void bombaExplode() throws  AcaoInvalidaException, BombaExplodiuException, PosicaoInvalidaException{
+		CampoMinado cm = new CampoMinado();
+		
+		cm.reseta();
+		Jogada n1 = new Jogada(Acao.MARCAR, new Coordenada(0,0));
+		Jogada n2 = new Jogada(Acao.INVESTIGAR, new Coordenada(0,0));
+		
+		cm.executa(n1);
+		cm.executa(n2);
+	
+	}
+	@test
+	public void acaoValida() {
+		Jogada um = new Jogada(Acao.INVESTIGAR, new Coordenada(0, 0));
+		Jogada dois = new Jogada(Acao.INVESTIGAR, new Coordenada(0, 1));
+		assertFalse("deveriam ser iguais!", um.equals(dois));
+		
+	
+	}
 	
 }
